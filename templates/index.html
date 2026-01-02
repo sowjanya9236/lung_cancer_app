@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lung Cancer Prediction</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f2f2f2; padding: 50px; }
+        .container { background: #fff; padding: 20px; border-radius: 8px; max-width: 500px; margin: auto; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h2 { text-align: center; }
+        input[type="number"], select { width: 100%; padding: 8px; margin: 5px 0 15px 0; border-radius: 4px; border: 1px solid #ccc; }
+        input[type="submit"] { width: 100%; padding: 10px; background: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        input[type="submit"]:hover { background: #45a049; }
+        .result { font-size: 20px; font-weight: bold; text-align: center; margin-top: 20px; }
+        .positive { color: red; }
+        .negative { color: green; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Lung Cancer Prediction</h2>
+        <form method="post">
+            <label>Gender (0=Female, 1=Male)</label>
+            <input type="number" name="gender" min="0" max="1" required>
+
+            <label>Age</label>
+            <input type="number" name="age" min="1" required>
+
+            <label>Smoking (0=No, 1=Yes)</label>
+            <input type="number" name="smoking" min="0" max="1" required>
+
+            <label>Yellow Fingers (0=No, 1=Yes)</label>
+            <input type="number" name="yellow_fingers" min="0" max="1" required>
+
+            <label>Anxiety (0=No, 1=Yes)</label>
+            <input type="number" name="anxiety" min="0" max="1" required>
+
+            <label>Peer Pressure (0=No, 1=Yes)</label>
+            <input type="number" name="peer_pressure" min="0" max="1" required>
+
+            <label>Chronic Disease (0=No, 1=Yes)</label>
+            <input type="number" name="chronic_disease" min="0" max="1" required>
+
+            <label>Fatigue (0=No, 1=Yes)</label>
+            <input type="number" name="fatigue" min="0" max="1" required>
+
+            <label>Allergy (0=No, 1=Yes)</label>
+            <input type="number" name="allergy" min="0" max="1" required>
+
+            <label>Wheezing (0=No, 1=Yes)</label>
+            <input type="number" name="wheezing" min="0" max="1" required>
+
+            <label>Alcohol (0=No, 1=Yes)</label>
+            <input type="number" name="alcohol" min="0" max="1" required>
+
+            <label>Coughing (0=No, 1=Yes)</label>
+            <input type="number" name="coughing" min="0" max="1" required>
+
+            <label>Shortness of Breath (0=No, 1=Yes)</label>
+            <input type="number" name="breath_shortness" min="0" max="1" required>
+
+            <label>Swallowing Difficulty (0=No, 1=Yes)</label>
+            <input type="number" name="swallowing_difficulty" min="0" max="1" required>
+
+            <label>Chest Pain (0=No, 1=Yes)</label>
+            <input type="number" name="chest_pain" min="0" max="1" required>
+
+            <input type="submit" value="Predict">
+        </form>
+
+        {% if result %}
+            <div class="result {% if result == 'LUNG CANCER DETECTED' %}positive{% else %}negative{% endif %}">
+                {{ result }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
